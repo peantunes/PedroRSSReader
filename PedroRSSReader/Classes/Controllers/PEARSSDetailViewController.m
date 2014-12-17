@@ -52,8 +52,12 @@
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.text = self.newsInfo.title;
     [self.scrollView addSubview:self.titleLabel];
-    
-    UIImage *image = [PEARequestManager imageFromURL:self.newsInfo.thumbnailLargeUrl];
+    UIImage *image ;
+    if (self.newsInfo.thumbnailLarge){
+        image = self.newsInfo.thumbnailLarge;
+    }else{
+        image = [PEARequestManager imageFromURL:self.newsInfo.thumbnailLargeUrl];
+    }
     self.imageView = [[UIImageView alloc] initWithImage:image];
     self.imageView.frame = CGRectMake(CGRectGetMidX(self.scrollView.frame)-(image.size.width*0.5), 80.0f, image.size.width, image.size.height);
     [self.scrollView addSubview:self.imageView];

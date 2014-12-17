@@ -47,12 +47,10 @@
     [self.refreshControl addTarget:self
                             action:@selector(refreshRSS)
                   forControlEvents:UIControlEventValueChanged];
-    
     [self refreshRSS];
 }
 
 - (void) refreshRSS{
-    
     __weak typeof(self) weakSelf = self;
     [PEARequestManager checkInternet:^(BOOL value) {
         if (value){
@@ -60,6 +58,9 @@
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet" message:@"Verify your internet connection" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
             [alert show];
+            
+            weakSelf.listNews = [[PEACoreDataManager sharedInstance] loadNewsEntityAsNewsInfo];
+            [weakSelf.tableView reloadData];
         }
         // End the refreshing
         if (weakSelf.refreshControl) {
@@ -79,8 +80,12 @@
 
 - (void) loadRSS{
     
+    //Delete old data on Core Data Entity
+    [[PEACoreDataManager sharedInstance] cleanNewsTable];
+    
     NSDictionary *content = [PEARequestManager loadRSSData:[PEARequestManager feedURL]];
     NSArray *list = [content valueForKeyPath:@"channel.item"];
+    
     NSMutableArray *rssFeed = [NSMutableArray new];
     for (NSDictionary *item in list){
         [rssFeed addObject:[[NewsInfo alloc] initFromDictionary:item]];
@@ -119,26 +124,12 @@
     NewsInfo *newsInfo = self.listNews[indexPath.row];
     cell.textLabel.text = newsInfo.title;
     cell.detailTextLabel.text = newsInfo.text;
-    cell.imageView.image = [UIImage imageNamed:@"no_image.gif"];
-    
-    if (newsInfo.thumbnailSmallUrl){
-        dispatch_async(kBgQueue, ^{
-            UIImage *image = [PEARequestManager imageFromURL:newsInfo.thumbnailSmallUrl];
-            if (image) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UITableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-                    if (updateCell){
-                        updateCell.imageView.image = image;
-                        [updateCell.imageView setNeedsDisplay];
-                        [updateCell.textLabel setNeedsDisplay];
-                        [updateCell.detailTextLabel setNeedsDisplay];
-                        [updateCell setNeedsDisplay];
-                    }
-                });
-            }
-        });
+//    cell.imageView.image = [UIImage imageNamed:@"no_image.gif"];
+    if (newsInfo.thumbnailSmall){
+        cell.imageView.image = newsInfo.thumbnailSmall;
+    }else{
+        newsInfo.refreshImage = cell.imageView;
     }
-
     
     return cell;
 }

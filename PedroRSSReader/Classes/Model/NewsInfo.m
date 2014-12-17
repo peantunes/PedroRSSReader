@@ -8,6 +8,7 @@
 
 #import "NewsInfo.h"
 #import "XMLDictionary.h"
+#import "News.h"
 
 #define kTitleTag @"title"
 #define kDescriptionTag @"description"
@@ -40,20 +41,43 @@
         NSDictionary *smallURL = [dict[kThumbnailTag] firstObject];
         self.thumbnailSmallUrl = [smallURL attributes][@"url"];
         NSDictionary *largeURL = [dict[kThumbnailTag] lastObject];
-        self.thumbnailLargeUrl = [largeURL attributes][@"url"];;
+        self.thumbnailLargeUrl = [largeURL attributes][@"url"];
         
+        [self loadImages];
     }
     return self;
 }
 
-- (NSData*) dataFromImage:(UIImage*)image{
-//    CGDataProviderRef provider = CGImageGetDataProvider(image.CGImage);
-//    NSData* data = (id)CFBridgingRelease(CGDataProviderCopyData(provider));
-    return UIImageJPEGRepresentation(image, 0.8);
+- (void) loadImages{
+    
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND,0), ^{
+        UIImage *smallImage = [PEARequestManager imageFromURL:weakSelf.thumbnailSmallUrl];
+        UIImage *largeImage = [PEARequestManager imageFromURL:weakSelf.thumbnailLargeUrl];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            weakSelf.thumbnailSmall = smallImage;
+            weakSelf.thumbnailLarge = largeImage;
+            [weakSelf save];
+        });
+    });
 }
 
-- (void) saveToCoreData{
-    
+- (void) save{
+    self.refreshImage.image = self.thumbnailSmall;
+    [self.refreshImage setNeedsDisplay];
+    [[PEACoreDataManager sharedInstance] addNewsRegister:self];
+}
+
+- (instancetype) initWithCoreData:(News*)news{
+    if (self = [self init]){
+        self.title = news.title;
+        self.text = news.text;
+        self.link = news.link;
+        self.pubDate = news.pubDate;
+        self.thumbnailSmall = [UIImage imageWithData:news.thumbnailSmall];
+        self.thumbnailLarge = [UIImage imageWithData:news.thumbnailLarge];
+    }
+    return self;
 }
 
 

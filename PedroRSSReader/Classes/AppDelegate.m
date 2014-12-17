@@ -17,7 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //Start setting ManagedContext to CoreDataManager
+    [[PEACoreDataManager sharedInstance] setManagedObjectContext:self.managedObjectContext];
+    
+    //initialize the first controller
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     if (!self.window)
     {

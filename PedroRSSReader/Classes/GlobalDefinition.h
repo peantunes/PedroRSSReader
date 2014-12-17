@@ -10,5 +10,6 @@
 #define PedroRSSReader_GlobalDefinition_h
 
 #import "PEARequestManager.h"
+#import "PEACoreDataManager.h"
 
 #endif

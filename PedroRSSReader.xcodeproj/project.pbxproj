@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C35BA911A41F98100A1A1A2 /* PEACoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C35BA901A41F98100A1A1A2 /* PEACoreDataManager.m */; };
 		9C67C6521A4183690086E216 /* PedroRSSReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6511A4183690086E216 /* PedroRSSReaderTests.m */; };
 		9C67C66E1A4184D60086E216 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C65D1A4184D60086E216 /* AppDelegate.m */; };
 		9C67C66F1A4184D60086E216 /* PEARSSListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6601A4184D60086E216 /* PEARSSListViewController.m */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C35BA8F1A41F98100A1A1A2 /* PEACoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEACoreDataManager.h; sourceTree = "<group>"; };
+		9C35BA901A41F98100A1A1A2 /* PEACoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEACoreDataManager.m; sourceTree = "<group>"; };
 		9C67C62F1A4183680086E216 /* PedroRSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PedroRSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C67C64B1A4183690086E216 /* PedroRSSReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PedroRSSReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C67C6501A4183690086E216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 			children = (
 				9C67C6851A41A00E0086E216 /* PEARequestManager.h */,
 				9C67C6861A41A00E0086E216 /* PEARequestManager.m */,
+				9C35BA8F1A41F98100A1A1A2 /* PEACoreDataManager.h */,
+				9C35BA901A41F98100A1A1A2 /* PEACoreDataManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				9C67C6871A41A00E0086E216 /* PEARequestManager.m in Sources */,
 				9C67C6911A41A9180086E216 /* NewsInfo.m in Sources */,
 				9C67C66E1A4184D60086E216 /* AppDelegate.m in Sources */,
+				9C35BA911A41F98100A1A1A2 /* PEACoreDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class News;
 @interface NewsInfo : NSObject
 
 - (instancetype) initFromDictionary:(NSDictionary*)dict;
+- (instancetype) initWithCoreData:(News*)news;
 
-- (void) saveToCoreData;
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *text;
@@ -22,6 +23,8 @@
 @property (nonatomic, strong) UIImage *thumbnailSmall;
 @property (nonatomic, strong) UIImage *thumbnailLarge;
 @property (nonatomic, strong) NSDate *pubDate;
+
+@property (nonatomic, strong) UIImageView *refreshImage;
 
 
 @end
