@@ -7,9 +7,13 @@
 //
 
 #import "PEARSSListViewController.h"
+#import "PEARSSDetailViewController.h"
 #import "PEARSSListTableView.h"
 #import "NewsInfo.h"
 #import "XMLDictionary.h"
+
+
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface PEARSSListViewController ()
 
@@ -39,7 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSDictionary *content = [PEARequestManager loadRSSData:@"http://feeds.bbci.co.uk/news/rss.xml"];
+    NSDictionary *content = [PEARequestManager loadRSSData:[PEARequestManager feedURL]];
     NSArray *list = [content valueForKeyPath:@"channel.item"];
     NSMutableArray *rssFeed = [NSMutableArray new];
     for (NSDictionary *item in list){
@@ -54,9 +58,9 @@
 }
 
 #pragma mark TableViewDelegate
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 90.0f;
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 90.0f;
+}
 
 #pragma mark TableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
@@ -78,9 +82,35 @@
     NewsInfo *newsInfo = self.listNews[indexPath.row];
     cell.textLabel.text = newsInfo.title;
     cell.detailTextLabel.text = newsInfo.text;
-    cell.imageView.image = newsInfo.thumbnailSmall;
+    cell.imageView.image = [UIImage imageNamed:@"no_image.gif"];
+    
+    if (newsInfo.thumbnailSmallUrl){
+        dispatch_async(kBgQueue, ^{
+            UIImage *image = [PEARequestManager imageFromURL:newsInfo.thumbnailSmallUrl];
+            if (image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UITableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+                    if (updateCell){
+                        updateCell.imageView.image = image;
+                        [updateCell.imageView setNeedsDisplay];
+                        [updateCell.textLabel setNeedsDisplay];
+                        [updateCell.detailTextLabel setNeedsDisplay];
+                        [updateCell setNeedsDisplay];
+                    }
+                });
+            }
+        });
+    }
+
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    PEARSSDetailViewController *detail = [[PEARSSDetailViewController alloc] initWithNewsInfo:self.listNews[indexPath.row]];
+    
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 @end

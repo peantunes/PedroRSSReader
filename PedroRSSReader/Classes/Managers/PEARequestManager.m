@@ -35,4 +35,57 @@
     
 }
 
++(NSString *)feedURL{
+    [PEARequestManager initialize];
+//    NSString *settingsBundle = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"bundle"];
+//    
+//    NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent:@"Root.plist"]];
+//    
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"feed_url"];
+
+}
+     
++ (void)initialize{
+    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+    [defs synchronize];
+    
+    NSString *settingsBundle = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"bundle"];
+    
+    if(!settingsBundle)
+    {
+        NSLog(@"Could not find Settings.bundle");
+        return;
+    }
+    
+    NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent:@"Root.plist"]];
+    NSArray *preferences = [settings objectForKey:@"PreferenceSpecifiers"];
+    NSMutableDictionary *defaultsToRegister = [[NSMutableDictionary alloc] initWithCapacity:[preferences count]];
+    
+    for (NSDictionary *prefSpecification in preferences)
+    {
+        NSString *key = [prefSpecification objectForKey:@"Key"];
+        if (key)
+        {
+            // Check if value is registered or not in userDefaults
+            id currentObject = [defs objectForKey:key];
+            if (currentObject == nil)
+            {
+                // Not registered: set value from Settings.bundle
+                id objectToSet = [prefSpecification objectForKey:@"DefaultValue"];
+                [defaultsToRegister setObject:objectToSet forKey:key];
+                NSLog(@"Setting object %@ for key %@", objectToSet, key);
+            }
+            else
+            {
+                // Already registered
+                NSLog(@"Key %@ is already registered with Value: %@).", key, currentObject);
+            }
+        }
+    }
+    
+    [defs registerDefaults:defaultsToRegister];
+    [defs synchronize];
+}
+
+
 @end

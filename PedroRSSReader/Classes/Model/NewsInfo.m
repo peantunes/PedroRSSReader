@@ -7,6 +7,7 @@
 //
 
 #import "NewsInfo.h"
+#import "XMLDictionary.h"
 
 #define kTitleTag @"title"
 #define kDescriptionTag @"description"
@@ -14,6 +15,7 @@
 #define kPubDateTag @"pubDate"
 #define kThumbnailTag @"media:thumbnail"
 #define kImageUrl @"url"
+
 
 @implementation NewsInfo
 
@@ -35,16 +37,11 @@
         self.text = dict[kDescriptionTag];
         self.link = dict[kLinkTag];
         self.pubDate = [PEARequestManager formatDate:dict[kPubDateTag]];
-        self.thumbnailSmallUrl = [dict[kThumbnailTag] firstObject][kImageUrl];
-        if (self.thumbnailSmallUrl){
-            UIImage *thumbnailSmall = [PEARequestManager imageFromURL:self.thumbnailSmallUrl];
-            self.thumbnailSmall = thumbnailSmall;
-        }
-        self.thumbnailLargeUrl = [dict[kThumbnailTag] lastObject][kImageUrl];
-        if (self.thumbnailLargeUrl && ![self.thumbnailSmallUrl isEqualToString:self.thumbnailLargeUrl]){
-            UIImage *thumbnailLarge = [PEARequestManager imageFromURL:self.thumbnailLargeUrl];
-            self.thumbnailLarge = thumbnailLarge;
-        }
+        NSDictionary *smallURL = [dict[kThumbnailTag] firstObject];
+        self.thumbnailSmallUrl = [smallURL attributes][@"url"];
+        NSDictionary *largeURL = [dict[kThumbnailTag] lastObject];
+        self.thumbnailLargeUrl = [largeURL attributes][@"url"];;
+        
     }
     return self;
 }

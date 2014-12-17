@@ -22,6 +22,8 @@
 		9C67C68D1A41A6060086E216 /* no_image.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9C67C68C1A41A6060086E216 /* no_image.gif */; };
 		9C67C6911A41A9180086E216 /* NewsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6901A41A9180086E216 /* NewsInfo.m */; };
 		9C67C6CA1A41AFD40086E216 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6C91A41AFD40086E216 /* XMLDictionary.m */; };
+		9C95010B1A41CEB400A7F54C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9C95010A1A41CEB400A7F54C /* Settings.bundle */; };
+		9C95010E1A41D89400A7F54C /* PEARSSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C95010D1A41D89400A7F54C /* PEARSSDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,9 @@
 		9C67C6901A41A9180086E216 /* NewsInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsInfo.m; sourceTree = "<group>"; };
 		9C67C6C81A41AFD40086E216 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
 		9C67C6C91A41AFD40086E216 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
+		9C95010A1A41CEB400A7F54C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		9C95010C1A41D89400A7F54C /* PEARSSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEARSSDetailViewController.h; sourceTree = "<group>"; };
+		9C95010D1A41D89400A7F54C /* PEARSSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEARSSDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +153,8 @@
 			children = (
 				9C67C65F1A4184D60086E216 /* PEARSSListViewController.h */,
 				9C67C6601A4184D60086E216 /* PEARSSListViewController.m */,
+				9C95010C1A41D89400A7F54C /* PEARSSDetailViewController.h */,
+				9C95010D1A41D89400A7F54C /* PEARSSDetailViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				9C67C6641A4184D60086E216 /* Info.plist */,
+				9C95010A1A41CEB400A7F54C /* Settings.bundle */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -325,6 +333,7 @@
 			files = (
 				9C67C6741A4184D60086E216 /* Images.xcassets in Resources */,
 				9C67C6721A4184D60086E216 /* LaunchScreen.xib in Resources */,
+				9C95010B1A41CEB400A7F54C /* Settings.bundle in Resources */,
 				9C67C6711A4184D60086E216 /* Info.plist in Resources */,
 				9C67C68D1A41A6060086E216 /* no_image.gif in Resources */,
 			);
@@ -350,6 +359,7 @@
 				9C67C6701A4184D60086E216 /* main.m in Sources */,
 				9C67C67D1A4185B50086E216 /* PEARSSDetail.m in Sources */,
 				9C67C6831A418C960086E216 /* News.m in Sources */,
+				9C95010E1A41D89400A7F54C /* PEARSSDetailViewController.m in Sources */,
 				9C67C6CA1A41AFD40086E216 /* XMLDictionary.m in Sources */,
 				9C67C6871A41A00E0086E216 /* PEARequestManager.m in Sources */,
 				9C67C6911A41A9180086E216 /* NewsInfo.m in Sources */,
@@ -538,6 +548,7 @@
 				9C67C6571A4183690086E216 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C67C6581A4183690086E216 /* Build configuration list for PBXNativeTarget "PedroRSSReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +557,7 @@
 				9C67C65A1A4183690086E216 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -15,4 +15,6 @@
 + (NSDate*) formatDate:(NSString*)stringDate;
 + (NSDictionary*) loadRSSData:(NSString*)path;
 
++ (NSString*)feedURL;
+
 @end
