@@ -8,11 +8,13 @@
 
 #import "PEARSSListViewController.h"
 #import "PEARSSListTableView.h"
-#import "PEARSSTableViewCell.h"
+#import "NewsInfo.h"
+#import "XMLDictionary.h"
 
 @interface PEARSSListViewController ()
 
-@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *listNews;
 
 @end
 
@@ -24,17 +26,26 @@
  */
 -(instancetype)init{
     if (self = [super init]){
-        self.tableView = [[PEARSSListTableView alloc] init];
+        self.title = @"RSS Feed";
+        self.tableView = [[UITableView alloc] init];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
+        self.tableView.frame = self.view.frame;
         self.view = self.tableView;
+        
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSDictionary *content = [PEARequestManager loadRSSData:@"http://feeds.bbci.co.uk/news/rss.xml"];
+    NSArray *list = [content valueForKeyPath:@"channel.item"];
+    NSMutableArray *rssFeed = [NSMutableArray new];
+    for (NSDictionary *item in list){
+        [rssFeed addObject:[[NewsInfo alloc] initFromDictionary:item]];
+    }
+    self.listNews = [rssFeed copy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,13 +54,31 @@
 }
 
 #pragma mark TableViewDelegate
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 90.0f;
+//}
+
+#pragma mark TableViewDataSource
+-(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.listNews.count;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"RSSItemCell";
     
-    PEARSSTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[PEARSSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    
+    NewsInfo *newsInfo = self.listNews[indexPath.row];
+    cell.textLabel.text = newsInfo.title;
+    cell.detailTextLabel.text = newsInfo.text;
+    cell.imageView.image = newsInfo.thumbnailSmall;
     
     return cell;
 }

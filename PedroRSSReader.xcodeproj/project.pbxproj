@@ -17,10 +17,11 @@
 		9C67C6751A4184D60086E216 /* PedroRSSReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C66C1A4184D60086E216 /* PedroRSSReader.xcdatamodeld */; };
 		9C67C67A1A4185970086E216 /* PEARSSListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6791A4185970086E216 /* PEARSSListTableView.m */; };
 		9C67C67D1A4185B50086E216 /* PEARSSDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C67C1A4185B50086E216 /* PEARSSDetail.m */; };
-		9C67C6801A418AF30086E216 /* PEARSSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C67F1A418AF30086E216 /* PEARSSTableViewCell.m */; };
 		9C67C6831A418C960086E216 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6821A418C960086E216 /* News.m */; };
 		9C67C6871A41A00E0086E216 /* PEARequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6861A41A00E0086E216 /* PEARequestManager.m */; };
 		9C67C68D1A41A6060086E216 /* no_image.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9C67C68C1A41A6060086E216 /* no_image.gif */; };
+		9C67C6911A41A9180086E216 /* NewsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6901A41A9180086E216 /* NewsInfo.m */; };
+		9C67C6CA1A41AFD40086E216 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6C91A41AFD40086E216 /* XMLDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,14 +52,16 @@
 		9C67C6791A4185970086E216 /* PEARSSListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEARSSListTableView.m; sourceTree = "<group>"; };
 		9C67C67B1A4185B50086E216 /* PEARSSDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEARSSDetail.h; sourceTree = "<group>"; };
 		9C67C67C1A4185B50086E216 /* PEARSSDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEARSSDetail.m; sourceTree = "<group>"; };
-		9C67C67E1A418AF30086E216 /* PEARSSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEARSSTableViewCell.h; sourceTree = "<group>"; };
-		9C67C67F1A418AF30086E216 /* PEARSSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEARSSTableViewCell.m; sourceTree = "<group>"; };
 		9C67C6811A418C960086E216 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		9C67C6821A418C960086E216 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		9C67C6851A41A00E0086E216 /* PEARequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEARequestManager.h; sourceTree = "<group>"; };
 		9C67C6861A41A00E0086E216 /* PEARequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEARequestManager.m; sourceTree = "<group>"; };
 		9C67C6891A41A1310086E216 /* GlobalDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDefinition.h; sourceTree = "<group>"; };
 		9C67C68C1A41A6060086E216 /* no_image.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = no_image.gif; sourceTree = "<group>"; };
+		9C67C68F1A41A9180086E216 /* NewsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsInfo.h; sourceTree = "<group>"; };
+		9C67C6901A41A9180086E216 /* NewsInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsInfo.m; sourceTree = "<group>"; };
+		9C67C6C81A41AFD40086E216 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
+		9C67C6C91A41AFD40086E216 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 		9C67C65B1A4184D60086E216 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9C67C6C71A41AFD40086E216 /* Lib */,
+				9C67C68E1A41A9010086E216 /* Model */,
 				9C67C6841A419FEA0086E216 /* Managers */,
 				9C67C6761A4185320086E216 /* Components */,
 				9C67C6771A4185320086E216 /* Views */,
@@ -188,8 +193,6 @@
 		9C67C6761A4185320086E216 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9C67C67E1A418AF30086E216 /* PEARSSTableViewCell.h */,
-				9C67C67F1A418AF30086E216 /* PEARSSTableViewCell.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -220,6 +223,24 @@
 				9C67C68C1A41A6060086E216 /* no_image.gif */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		9C67C68E1A41A9010086E216 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C68F1A41A9180086E216 /* NewsInfo.h */,
+				9C67C6901A41A9180086E216 /* NewsInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C67C6C71A41AFD40086E216 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C6C81A41AFD40086E216 /* XMLDictionary.h */,
+				9C67C6C91A41AFD40086E216 /* XMLDictionary.m */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,11 +347,12 @@
 				9C67C6751A4184D60086E216 /* PedroRSSReader.xcdatamodeld in Sources */,
 				9C67C67A1A4185970086E216 /* PEARSSListTableView.m in Sources */,
 				9C67C66F1A4184D60086E216 /* PEARSSListViewController.m in Sources */,
-				9C67C6801A418AF30086E216 /* PEARSSTableViewCell.m in Sources */,
 				9C67C6701A4184D60086E216 /* main.m in Sources */,
 				9C67C67D1A4185B50086E216 /* PEARSSDetail.m in Sources */,
 				9C67C6831A418C960086E216 /* News.m in Sources */,
+				9C67C6CA1A41AFD40086E216 /* XMLDictionary.m in Sources */,
 				9C67C6871A41A00E0086E216 /* PEARequestManager.m in Sources */,
+				9C67C6911A41A9180086E216 /* NewsInfo.m in Sources */,
 				9C67C66E1A4184D60086E216 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

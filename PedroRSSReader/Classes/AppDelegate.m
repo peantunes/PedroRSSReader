@@ -27,7 +27,7 @@
     
     PEARSSListViewController *rootController = [[PEARSSListViewController alloc] init];
     
-    [self.window addSubview:rootController.view];
+    [self.window setRootViewController:[[UINavigationController alloc] initWithRootViewController:rootController]];
     [self.window makeKeyAndVisible];
     
     return YES;

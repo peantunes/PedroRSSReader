@@ -12,5 +12,7 @@
 @interface PEARequestManager : NSObject
 
 + (UIImage*) imageFromURL:(NSString*)path;
++ (NSDate*) formatDate:(NSString*)stringDate;
++ (NSDictionary*) loadRSSData:(NSString*)path;
 
 @end
