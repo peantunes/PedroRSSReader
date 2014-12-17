@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef void(^connection)(BOOL);
+
 @interface PEARequestManager : NSObject
 
 + (UIImage*) imageFromURL:(NSString*)path;
 + (NSDate*) formatDate:(NSString*)stringDate;
 + (NSDictionary*) loadRSSData:(NSString*)path;
++ (void)checkInternet:(connection)block;
 
 + (NSString*)feedURL;
 

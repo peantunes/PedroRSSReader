@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PEARSSListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface PEARSSListViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
 
 @end

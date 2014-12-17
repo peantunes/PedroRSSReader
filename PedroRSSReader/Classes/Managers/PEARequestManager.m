@@ -9,6 +9,7 @@
 #import "PEARequestManager.h"
 #import "XMLDictionary.h"
 
+
 @implementation PEARequestManager
 
 + (UIImage*) imageFromURL:(NSString*)path{
@@ -35,17 +36,38 @@
     
 }
 
+/**
+ I used Reachability.h and is the easy way to do that, but I've found this easy solution
+ */
+
++ (void)checkInternet:(connection)block{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.google.com/"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"HEAD";
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    request.timeoutInterval = 10.0;
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:
+     ^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+         block([(NSHTTPURLResponse *)response statusCode] == 200);
+     }];
+}
+
 +(NSString *)feedURL{
-    [PEARequestManager initialize];
-//    NSString *settingsBundle = [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"bundle"];
-//    
-//    NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent:@"Root.plist"]];
-//    
+    
+    [PEARequestManager initializeSettings];
+    
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"feed_url"];
 
 }
      
-+ (void)initialize{
++ (void)initializeSettings{
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
     [defs synchronize];
     
@@ -86,6 +108,10 @@
     [defs registerDefaults:defaultsToRegister];
     [defs synchronize];
 }
+
+
+
+
 
 
 @end

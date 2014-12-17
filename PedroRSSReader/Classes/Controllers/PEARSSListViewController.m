@@ -17,8 +17,8 @@
 
 @interface PEARSSListViewController ()
 
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *listNews;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -31,11 +31,8 @@
 -(instancetype)init{
     if (self = [super init]){
         self.title = @"RSS Feed";
-        self.tableView = [[UITableView alloc] init];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        self.tableView.frame = self.view.frame;
-        self.view = self.tableView;
         
     }
     return self;
@@ -43,6 +40,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Initialize the refresh control.
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor darkGrayColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshRSS)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    [self refreshRSS];
+}
+
+- (void) refreshRSS{
+    
+    __weak typeof(self) weakSelf = self;
+    [PEARequestManager checkInternet:^(BOOL value) {
+        if (value){
+            [weakSelf loadRSS];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet" message:@"Verify your internet connection" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
+            [alert show];
+        }
+        // End the refreshing
+        if (weakSelf.refreshControl) {
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"MMM d, h:mm a"];
+            NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+            NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
+                                                                        forKey:NSForegroundColorAttributeName];
+            NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
+            weakSelf.refreshControl.attributedTitle = attributedTitle;
+            
+            [weakSelf.refreshControl endRefreshing];
+        }
+    }];
+}
+
+- (void) loadRSS{
+    
     NSDictionary *content = [PEARequestManager loadRSSData:[PEARequestManager feedURL]];
     NSArray *list = [content valueForKeyPath:@"channel.item"];
     NSMutableArray *rssFeed = [NSMutableArray new];
@@ -50,6 +86,7 @@
         [rssFeed addObject:[[NewsInfo alloc] initFromDictionary:item]];
     }
     self.listNews = [rssFeed copy];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
