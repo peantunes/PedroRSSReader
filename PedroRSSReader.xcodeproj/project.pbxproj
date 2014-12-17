@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C67C6351A4183680086E216 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6341A4183680086E216 /* main.m */; };
-		9C67C6381A4183680086E216 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6371A4183680086E216 /* AppDelegate.m */; };
-		9C67C63B1A4183690086E216 /* PedroRSSReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6391A4183690086E216 /* PedroRSSReader.xcdatamodeld */; };
-		9C67C63E1A4183690086E216 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C63D1A4183690086E216 /* ViewController.m */; };
-		9C67C6411A4183690086E216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C67C63F1A4183690086E216 /* Main.storyboard */; };
-		9C67C6431A4183690086E216 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C67C6421A4183690086E216 /* Images.xcassets */; };
-		9C67C6461A4183690086E216 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C67C6441A4183690086E216 /* LaunchScreen.xib */; };
 		9C67C6521A4183690086E216 /* PedroRSSReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6511A4183690086E216 /* PedroRSSReaderTests.m */; };
+		9C67C66E1A4184D60086E216 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C65D1A4184D60086E216 /* AppDelegate.m */; };
+		9C67C66F1A4184D60086E216 /* PEARSSListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6601A4184D60086E216 /* PEARSSListViewController.m */; };
+		9C67C6701A4184D60086E216 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6611A4184D60086E216 /* main.m */; };
+		9C67C6711A4184D60086E216 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C67C6641A4184D60086E216 /* Info.plist */; };
+		9C67C6721A4184D60086E216 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C67C6661A4184D60086E216 /* LaunchScreen.xib */; };
+		9C67C6741A4184D60086E216 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C67C66A1A4184D60086E216 /* Images.xcassets */; };
+		9C67C6751A4184D60086E216 /* PedroRSSReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C66C1A4184D60086E216 /* PedroRSSReader.xcdatamodeld */; };
+		9C67C67A1A4185970086E216 /* PEARSSListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6791A4185970086E216 /* PEARSSListTableView.m */; };
+		9C67C67D1A4185B50086E216 /* PEARSSDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C67C1A4185B50086E216 /* PEARSSDetail.m */; };
+		9C67C6801A418AF30086E216 /* PEARSSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C67F1A418AF30086E216 /* PEARSSTableViewCell.m */; };
+		9C67C6831A418C960086E216 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6821A418C960086E216 /* News.m */; };
+		9C67C6871A41A00E0086E216 /* PEARequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C67C6861A41A00E0086E216 /* PEARequestManager.m */; };
+		9C67C68D1A41A6060086E216 /* no_image.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9C67C68C1A41A6060086E216 /* no_image.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,19 +35,30 @@
 
 /* Begin PBXFileReference section */
 		9C67C62F1A4183680086E216 /* PedroRSSReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PedroRSSReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C67C6331A4183680086E216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C67C6341A4183680086E216 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9C67C6361A4183680086E216 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		9C67C6371A4183680086E216 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9C67C63A1A4183690086E216 /* PedroRSSReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PedroRSSReader.xcdatamodel; sourceTree = "<group>"; };
-		9C67C63C1A4183690086E216 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9C67C63D1A4183690086E216 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9C67C6401A4183690086E216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9C67C6421A4183690086E216 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9C67C6451A4183690086E216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9C67C64B1A4183690086E216 /* PedroRSSReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PedroRSSReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C67C6501A4183690086E216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C67C6511A4183690086E216 /* PedroRSSReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PedroRSSReaderTests.m; sourceTree = "<group>"; };
+		9C67C65C1A4184D60086E216 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9C67C65D1A4184D60086E216 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9C67C65F1A4184D60086E216 /* PEARSSListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEARSSListViewController.h; sourceTree = "<group>"; };
+		9C67C6601A4184D60086E216 /* PEARSSListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEARSSListViewController.m; sourceTree = "<group>"; };
+		9C67C6611A4184D60086E216 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9C67C6641A4184D60086E216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C67C6671A4184D60086E216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9C67C66A1A4184D60086E216 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9C67C66D1A4184D60086E216 /* PedroRSSReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PedroRSSReader.xcdatamodel; sourceTree = "<group>"; };
+		9C67C6781A4185970086E216 /* PEARSSListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEARSSListTableView.h; sourceTree = "<group>"; };
+		9C67C6791A4185970086E216 /* PEARSSListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEARSSListTableView.m; sourceTree = "<group>"; };
+		9C67C67B1A4185B50086E216 /* PEARSSDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEARSSDetail.h; sourceTree = "<group>"; };
+		9C67C67C1A4185B50086E216 /* PEARSSDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEARSSDetail.m; sourceTree = "<group>"; };
+		9C67C67E1A418AF30086E216 /* PEARSSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEARSSTableViewCell.h; sourceTree = "<group>"; };
+		9C67C67F1A418AF30086E216 /* PEARSSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEARSSTableViewCell.m; sourceTree = "<group>"; };
+		9C67C6811A418C960086E216 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		9C67C6821A418C960086E216 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		9C67C6851A41A00E0086E216 /* PEARequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEARequestManager.h; sourceTree = "<group>"; };
+		9C67C6861A41A00E0086E216 /* PEARequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEARequestManager.m; sourceTree = "<group>"; };
+		9C67C6891A41A1310086E216 /* GlobalDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDefinition.h; sourceTree = "<group>"; };
+		9C67C68C1A41A6060086E216 /* no_image.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = no_image.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,26 +100,10 @@
 		9C67C6311A4183680086E216 /* PedroRSSReader */ = {
 			isa = PBXGroup;
 			children = (
-				9C67C6361A4183680086E216 /* AppDelegate.h */,
-				9C67C6371A4183680086E216 /* AppDelegate.m */,
-				9C67C63C1A4183690086E216 /* ViewController.h */,
-				9C67C63D1A4183690086E216 /* ViewController.m */,
-				9C67C63F1A4183690086E216 /* Main.storyboard */,
-				9C67C6421A4183690086E216 /* Images.xcassets */,
-				9C67C6441A4183690086E216 /* LaunchScreen.xib */,
-				9C67C6391A4183690086E216 /* PedroRSSReader.xcdatamodeld */,
-				9C67C6321A4183680086E216 /* Supporting Files */,
+				9C67C65B1A4184D60086E216 /* Classes */,
+				9C67C6621A4184D60086E216 /* Resources */,
 			);
 			path = PedroRSSReader;
-			sourceTree = "<group>";
-		};
-		9C67C6321A4183680086E216 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9C67C6331A4183680086E216 /* Info.plist */,
-				9C67C6341A4183680086E216 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		9C67C64E1A4183690086E216 /* PedroRSSReaderTests */ = {
@@ -120,6 +121,105 @@
 				9C67C6501A4183690086E216 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C67C65B1A4184D60086E216 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C6841A419FEA0086E216 /* Managers */,
+				9C67C6761A4185320086E216 /* Components */,
+				9C67C6771A4185320086E216 /* Views */,
+				9C67C65E1A4184D60086E216 /* Controllers */,
+				9C67C65C1A4184D60086E216 /* AppDelegate.h */,
+				9C67C65D1A4184D60086E216 /* AppDelegate.m */,
+				9C67C6611A4184D60086E216 /* main.m */,
+				9C67C6891A41A1310086E216 /* GlobalDefinition.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		9C67C65E1A4184D60086E216 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C65F1A4184D60086E216 /* PEARSSListViewController.h */,
+				9C67C6601A4184D60086E216 /* PEARSSListViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9C67C6621A4184D60086E216 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C6631A4184D60086E216 /* Config */,
+				9C67C6651A4184D60086E216 /* Media */,
+				9C67C66B1A4184D60086E216 /* Model */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9C67C6631A4184D60086E216 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C6641A4184D60086E216 /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		9C67C6651A4184D60086E216 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C68B1A41A6060086E216 /* Images */,
+				9C67C6661A4184D60086E216 /* LaunchScreen.xib */,
+				9C67C66A1A4184D60086E216 /* Images.xcassets */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		9C67C66B1A4184D60086E216 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C66C1A4184D60086E216 /* PedroRSSReader.xcdatamodeld */,
+				9C67C6811A418C960086E216 /* News.h */,
+				9C67C6821A418C960086E216 /* News.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C67C6761A4185320086E216 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C67E1A418AF30086E216 /* PEARSSTableViewCell.h */,
+				9C67C67F1A418AF30086E216 /* PEARSSTableViewCell.m */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9C67C6771A4185320086E216 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C6781A4185970086E216 /* PEARSSListTableView.h */,
+				9C67C6791A4185970086E216 /* PEARSSListTableView.m */,
+				9C67C67B1A4185B50086E216 /* PEARSSDetail.h */,
+				9C67C67C1A4185B50086E216 /* PEARSSDetail.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9C67C6841A419FEA0086E216 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C6851A41A00E0086E216 /* PEARequestManager.h */,
+				9C67C6861A41A00E0086E216 /* PEARequestManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		9C67C68B1A41A6060086E216 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9C67C68C1A41A6060086E216 /* no_image.gif */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,9 +302,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C67C6411A4183690086E216 /* Main.storyboard in Resources */,
-				9C67C6461A4183690086E216 /* LaunchScreen.xib in Resources */,
-				9C67C6431A4183690086E216 /* Images.xcassets in Resources */,
+				9C67C6741A4184D60086E216 /* Images.xcassets in Resources */,
+				9C67C6721A4184D60086E216 /* LaunchScreen.xib in Resources */,
+				9C67C6711A4184D60086E216 /* Info.plist in Resources */,
+				9C67C68D1A41A6060086E216 /* no_image.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,10 +323,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C67C63B1A4183690086E216 /* PedroRSSReader.xcdatamodeld in Sources */,
-				9C67C6381A4183680086E216 /* AppDelegate.m in Sources */,
-				9C67C63E1A4183690086E216 /* ViewController.m in Sources */,
-				9C67C6351A4183680086E216 /* main.m in Sources */,
+				9C67C6751A4184D60086E216 /* PedroRSSReader.xcdatamodeld in Sources */,
+				9C67C67A1A4185970086E216 /* PEARSSListTableView.m in Sources */,
+				9C67C66F1A4184D60086E216 /* PEARSSListViewController.m in Sources */,
+				9C67C6801A418AF30086E216 /* PEARSSTableViewCell.m in Sources */,
+				9C67C6701A4184D60086E216 /* main.m in Sources */,
+				9C67C67D1A4185B50086E216 /* PEARSSDetail.m in Sources */,
+				9C67C6831A418C960086E216 /* News.m in Sources */,
+				9C67C6871A41A00E0086E216 /* PEARequestManager.m in Sources */,
+				9C67C66E1A4184D60086E216 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,18 +354,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9C67C63F1A4183690086E216 /* Main.storyboard */ = {
+		9C67C6661A4184D60086E216 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9C67C6401A4183690086E216 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9C67C6441A4183690086E216 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9C67C6451A4183690086E216 /* Base */,
+				9C67C6671A4184D60086E216 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -347,7 +445,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PedroRSSReader/Info.plist;
+				GCC_PREFIX_HEADER = PedroRSSReader/Classes/GlobalDefinition.h;
+				INFOPLIST_FILE = PedroRSSReader/Resources/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -357,7 +456,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PedroRSSReader/Info.plist;
+				GCC_PREFIX_HEADER = PedroRSSReader/Classes/GlobalDefinition.h;
+				INFOPLIST_FILE = PedroRSSReader/Resources/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -428,12 +528,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9C67C6391A4183690086E216 /* PedroRSSReader.xcdatamodeld */ = {
+		9C67C66C1A4184D60086E216 /* PedroRSSReader.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9C67C63A1A4183690086E216 /* PedroRSSReader.xcdatamodel */,
+				9C67C66D1A4184D60086E216 /* PedroRSSReader.xcdatamodel */,
 			);
-			currentVersion = 9C67C63A1A4183690086E216 /* PedroRSSReader.xcdatamodel */;
+			currentVersion = 9C67C66D1A4184D60086E216 /* PedroRSSReader.xcdatamodel */;
 			path = PedroRSSReader.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

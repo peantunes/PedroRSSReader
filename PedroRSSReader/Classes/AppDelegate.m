@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PEARSSListViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    if (!self.window)
+    {
+        return NO;
+    }
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    PEARSSListViewController *rootController = [[PEARSSListViewController alloc] init];
+    
+    [self.window addSubview:rootController.view];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
